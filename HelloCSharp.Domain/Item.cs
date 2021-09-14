@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace HelloCSharp.Domain
 {
-	class Dog : Animal
+	class Item : Something
 	{
-		/* 
-		 * TODO how to implement owner?
-		 */
-
-		public Dog(string sound = "bark") 
-			: base(sound, Animal.AlwaysDomestic)
+		public Item(DateTime expireDate)
 		{
+			ExpireDate = expireDate;
 		}
+
+		public DateTime ExpireDate { get; }
 	}
-}
+ }

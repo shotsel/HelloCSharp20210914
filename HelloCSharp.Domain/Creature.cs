@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HelloCSharp.Domain
 {
-	class Creature
+	class Creature : Something
 	{
 		private string _sound;
 		private Head _head;
@@ -22,6 +22,13 @@ namespace HelloCSharp.Domain
 
 			/*
 			 * implement how sound is given
+			 */
+		}
+
+		void Eat(Sandwich sandwich)
+		{
+			/*
+			 * TODO teach this object (and all hierarchy) how to eat.
 			 */
 		}
 	}
