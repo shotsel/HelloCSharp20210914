@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloCSharp.Domain", "HelloCSharp.Domain\HelloCSharp.Domain.csproj", "{89BC9CEB-CC92-41A5-9C64-5CBB33639BB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloCSharp.AppCmd", "..\HelloCSharp.AppCmd\HelloCSharp.AppCmd.csproj", "{1810B21A-934E-4411-9E6E-139B64C9BCB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloCSharp.AppCmd", "HelloCSharp.AppCmd\HelloCSharp.AppCmd.csproj", "{1810B21A-934E-4411-9E6E-139B64C9BCB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
