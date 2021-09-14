@@ -1,6 +1,6 @@
 ﻿namespace HelloCSharp.Domain
 {
-	internal class Arm
+	public class Arm
 	{
 	}
 }

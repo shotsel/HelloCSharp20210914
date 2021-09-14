@@ -2,7 +2,7 @@
 
 namespace HelloCSharp.Domain
 {
-	internal class Something
+	public class Something
 	{
 		public Something()
 		{

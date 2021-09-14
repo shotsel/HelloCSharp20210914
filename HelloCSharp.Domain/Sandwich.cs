@@ -2,7 +2,7 @@
 
 namespace HelloCSharp.Domain
 {
-	class Sandwich : Item
+	public class Sandwich : Item
 	{
 		public Sandwich(int size) 
 			: base(DateTime.Now.AddDays(3))

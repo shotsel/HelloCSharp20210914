@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HelloCSharp.Domain
 {
-	class Item : Something
+	public class Item : Something
 	{
 		public Item(DateTime expireDate)
 		{
