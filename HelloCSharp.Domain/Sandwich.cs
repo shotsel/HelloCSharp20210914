@@ -26,5 +26,6 @@ namespace HelloCSharp.Domain
 		}
 
 		public Weight Weight { get; }
+		public string Name { get; set; }
 	}
 }
