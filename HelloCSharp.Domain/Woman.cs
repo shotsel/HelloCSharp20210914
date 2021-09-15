@@ -2,8 +2,11 @@
 {
 	class Woman : Human
 	{
-		public Woman(string sound) : base(sound)
+		public Woman(string sound) 
+			: base(sound)
 		{
 		}
+
+		public override Gender Gender => Gender.Female;
 	}
 }

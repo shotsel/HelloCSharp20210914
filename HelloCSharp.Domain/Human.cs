@@ -26,6 +26,8 @@ namespace HelloCSharp.Domain
 
 		public DateTime CreationDate { get; }
 
+		public abstract Gender Gender { get; }
+
 		private void CheckIfHangCanBeSwapped(Arm value)
 		{
 			throw new NotImplementedException();
