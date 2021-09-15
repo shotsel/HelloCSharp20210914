@@ -1,4 +1,6 @@
-﻿namespace HelloCSharp.Tools.Physics
+﻿using System;
+
+namespace HelloCSharp.Tools.Physics
 {
     /// <summary>
     /// Holds weight expressed in grams.
@@ -8,7 +10,7 @@
         /// <summary>
         /// Wright in grams.
         /// </summary>
-        private readonly int _weight;
+        private int _weight;
 
         /// <summary>
         /// Creates weight based on value expressed in grams.
@@ -23,5 +25,10 @@
         {
             return _weight;
         }
-    }
+
+		public void AddGrams(int delta)
+		{
+            _weight += delta;
+		}
+	}
 }

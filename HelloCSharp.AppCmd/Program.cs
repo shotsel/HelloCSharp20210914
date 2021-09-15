@@ -30,7 +30,68 @@ namespace HelloCSharp.AppCmd
 
 			piotrek.Eat(kanapkaZSzynka);
 
+			ValueVsReference();
+
 			Console.ReadKey();
+		}
+
+		private static void ValueVsReference()
+		{
+			Weight oryginal = new Weight(100);
+			Weight duplicated = oryginal;
+			Console.WriteLine(Environment.NewLine);
+			Console.WriteLine("value type behaviour");
+			Console.WriteLine("oryginal weight: " + oryginal.GetGrams());
+			Console.WriteLine("duplicated weight: " + duplicated.GetGrams());
+
+			duplicated.AddGrams(200);
+
+			Console.WriteLine("after change");
+			Console.WriteLine("oryginal weight: " + oryginal.GetGrams());
+			Console.WriteLine("duplicated weight: " + duplicated.GetGrams());
+
+			Console.WriteLine(Environment.NewLine);
+			Console.WriteLine("reference type behaviour");
+
+			Sandwich oryginalSandwich = new Sandwich(200);
+			oryginalSandwich.Name = "oryginal";
+			Sandwich duplicatedSandwich = oryginalSandwich;
+			Console.WriteLine("oryginal sandwich weight: " + oryginalSandwich.Name);
+			Console.WriteLine("duplicated duplicated weight: " + duplicatedSandwich.Name);
+
+			duplicatedSandwich.Name = "duplicate";
+			Console.WriteLine("after assignemnt change");
+			Console.WriteLine("oryginal sandwich weight: " + oryginalSandwich.Name);
+			Console.WriteLine("duplicated duplicated weight: " + duplicatedSandwich.Name);
+
+			ChangeSandwichName(duplicatedSandwich, "changed in Method");
+			Console.WriteLine("after change in method");
+			Console.WriteLine("oryginal sandwich weight: " + oryginalSandwich.Name);
+			Console.WriteLine("duplicated duplicated weight: " + duplicatedSandwich.Name);
+
+			ChangeWeight(duplicated, 300);
+			Console.WriteLine("after change in method");
+			Console.WriteLine("oryginal weight: " + oryginal.GetGrams());
+			Console.WriteLine("duplicated weight: " + duplicated.GetGrams());
+
+
+			Sandwich newOne = new Sandwich(500);
+			Weight sandwichWeight = newOne.Weight;
+
+			sandwichWeight.AddGrams(30);
+			Console.WriteLine("sandwich.weight: " + newOne.Weight.GetGrams());
+			Console.WriteLine("sandwichWeight: " + sandwichWeight.GetGrams());
+		}
+
+		private static void ChangeSandwichName(Sandwich subject, string newName)
+		{
+			subject.Name = newName;
+		}
+
+		private static void ChangeWeight(Weight subject, int delta)
+		{
+			subject.AddGrams(delta);
+			Console.WriteLine("changes weigh in method: " + subject.GetGrams());
 		}
 	}
 }
