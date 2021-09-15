@@ -8,13 +8,16 @@ namespace HelloCSharp.Domain
 {
 	class Dog : Animal
 	{
+		private readonly string _sound;
+
 		/* 
-		 * TODO how to implement owner?
-		 */
+* TODO how to implement owner?
+*/
 
 		public Dog(string sound = "bark") 
-			: base(sound, Animal.AlwaysDomestic)
+			: base(Animal.AlwaysDomestic)
 		{
+			_sound = sound;
 		}
 
 		public void ChangeOwner(Human owner)
@@ -23,6 +26,11 @@ namespace HelloCSharp.Domain
 			// Due Human nature, it's not possible to swap body elements whenever you want.
 			// Even though property (gated access) to the private field exists, still only "viewing" option is possible
 			// owner.Left = new Arm();
+		}
+
+		public override void GetSound()
+		{
+			Console.WriteLine("dog does " + _sound);
 		}
 	}
 }

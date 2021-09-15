@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace HelloCSharp.Domain
 {
-	public class Human : Creature
+	public abstract class Human : ICreature
 	{
 		private Arm _left;
 		private Arm _right;
+		private readonly string _sound;
 
 		public Human(string sound) 
-			: base(sound)
 		{
+			CreationDate = DateTime.Now.Date;
+			_sound = sound;
 		}
 
 		public Arm Left 
@@ -21,6 +23,8 @@ namespace HelloCSharp.Domain
 			get => _left;
 			protected set => CheckIfHangCanBeSwapped(value);
 		}
+
+		public DateTime CreationDate { get; }
 
 		private void CheckIfHangCanBeSwapped(Arm value)
 		{
@@ -31,6 +35,18 @@ namespace HelloCSharp.Domain
 		{
 			other._left = new Arm();
 			other._right = new Arm();
+		}
+
+		public void GetSound()
+		{
+			Console.WriteLine("im speaking now: " + _sound);
+		}
+
+		public void Eat(Sandwich sandwich)
+		{
+			/*
+			 * TODO how human eats???
+			 */
 		}
 	}
 }

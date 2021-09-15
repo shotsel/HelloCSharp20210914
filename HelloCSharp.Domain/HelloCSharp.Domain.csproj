@@ -44,7 +44,7 @@
     <Compile Include="Animal.cs" />
     <Compile Include="Arm.cs" />
     <Compile Include="Bird.cs" />
-    <Compile Include="Creature.cs" />
+    <Compile Include="ICreature.cs" />
     <Compile Include="Dog.cs" />
     <Compile Include="Head.cs" />
     <Compile Include="Human.cs" />
@@ -52,7 +52,7 @@
     <Compile Include="Man.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sandwich.cs" />
-    <Compile Include="Something.cs" />
+    <Compile Include="ISomething.cs" />
     <Compile Include="Woman.cs" />
     <Compile Include="Wrapping.cs" />
     <Compile Include="Wright.cs" />

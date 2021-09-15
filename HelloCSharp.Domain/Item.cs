@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace HelloCSharp.Domain
 {
-	public class Item : Something
+	public class Item : ISomething
 	{
 		public Item(DateTime expireDate)
 		{
 			ExpireDate = expireDate;
+			CreationDate = DateTime.Now;
 		}
 
 		public DateTime ExpireDate { get; }
+
+		public DateTime CreationDate { get; }
 	}
  }

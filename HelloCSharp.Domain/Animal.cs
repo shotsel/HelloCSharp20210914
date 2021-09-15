@@ -6,16 +6,27 @@ using System.Threading.Tasks;
 
 namespace HelloCSharp.Domain
 {
-	class Animal : Creature
+	abstract class Animal : ICreature
 	{
 		public static bool AlwaysDomestic = true;
 
 		private bool _isDomestic;
 
-		public Animal(string sound, bool isDomestic) 
-			: base(sound)
+		public Animal(bool isDomestic)
 		{
 			_isDomestic = isDomestic;
+			CreationDate = DateTime.Now;
 		}
+
+		public DateTime CreationDate { get; }
+
+		public void Eat(Sandwich sandwich)
+		{
+			/*
+			 * TODO implement how all animals will deal with sandwich
+			 */
+		}
+
+		public abstract void GetSound();
 	}
 }
