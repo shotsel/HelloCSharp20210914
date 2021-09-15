@@ -23,8 +23,8 @@ namespace HelloCSharp.Domain
 		/// Creates <see cref="Sandwich"/> based on weight expressed in grams.
 		/// </summary>
 		/// <param name="weight">Grams</param>
-		public Sandwich(int weight)
-			: this(new Weight(weight))
+		public Sandwich(int grams)
+			: this(Weight.FromGrams(grams))
 		{
 		}
 

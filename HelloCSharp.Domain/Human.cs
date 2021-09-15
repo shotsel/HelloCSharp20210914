@@ -60,6 +60,12 @@ namespace HelloCSharp.Domain
 			}
 
 			var food = wrappingWithFood.Remove();
+			if (!(food is Sandwich))
+			{
+				// even more funny you idiot....
+				return;
+			}
+
 			Eat((Sandwich)food);
 		}
 	}

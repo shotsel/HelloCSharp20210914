@@ -38,14 +38,16 @@ namespace HelloCSharp.AppCmd
 			Sandwich suchyChleb = new Sandwich(200);
 
 
-			Weight weight = new Weight(300);
+			Weight weight = Weight.FromGrams(300);
 
 			piotrek.Eat(kanapkaZSzynka);
 		}
 
 		private static void ValueVsReference()
 		{
-			Weight oryginal = new Weight(100);
+			//Weight oryginal = new Weight(100);
+			Weight oryginal = Weight.FromGrams(100);
+
 			Weight duplicated = oryginal;
 			Console.WriteLine(Environment.NewLine);
 			Console.WriteLine("value type behaviour");
