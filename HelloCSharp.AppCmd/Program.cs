@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using HelloCSharp.Domain;
+using HelloCSharp.Tools.Physics;
 
 namespace HelloCSharp.AppCmd
 {
@@ -19,10 +20,13 @@ namespace HelloCSharp.AppCmd
 			// piotrek._left = new Arm();
 
 			piotrek.GetSound();
-
+			
 			Sandwich kanapkaZSzynka = new Sandwich(400);
 			Sandwich kanapkaZSerem = new Sandwich(600);
 			Sandwich suchyChleb = new Sandwich(200);
+
+
+			Weight weight = new Weight(300);
 
 			piotrek.Eat(kanapkaZSzynka);
 

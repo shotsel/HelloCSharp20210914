@@ -54,6 +54,10 @@
       <Project>{89bc9ceb-cc92-41a5-9c64-5cbb33639bb5}</Project>
       <Name>HelloCSharp.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HelloCSharp.Tools\HelloCSharp.Tools.csproj">
+      <Project>{6DD05821-CCA7-4389-A32A-E2FE415050F5}</Project>
+      <Name>HelloCSharp.Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
