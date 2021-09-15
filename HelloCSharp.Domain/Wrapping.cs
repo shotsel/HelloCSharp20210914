@@ -2,7 +2,7 @@
 
 namespace HelloCSharp.Domain
 {
-	class Wrapping : Item
+	public class Wrapping : Item
 	{
 		object _content = null;
 

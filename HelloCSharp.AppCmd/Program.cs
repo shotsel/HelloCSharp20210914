@@ -13,6 +13,18 @@ namespace HelloCSharp.AppCmd
 	{
 		static void Main(string[] args)
 		{
+			var burger = new Sandwich(300);
+			var paperBox = new Wrapping();
+			paperBox.Put(burger);
+
+			Human peter = new Man("im hugry!!");
+			peter.Eat(paperBox);
+
+			Console.ReadKey();
+		}
+
+		private static void Playground()
+		{
 			Man piotrek = new Man("jestem piotrek");
 			Man szymon = new Man("jestem piotrek");
 
@@ -20,7 +32,7 @@ namespace HelloCSharp.AppCmd
 			// piotrek._left = new Arm();
 
 			piotrek.GetSound();
-			
+
 			Sandwich kanapkaZSzynka = new Sandwich(400);
 			Sandwich kanapkaZSerem = new Sandwich(600);
 			Sandwich suchyChleb = new Sandwich(200);
@@ -29,10 +41,6 @@ namespace HelloCSharp.AppCmd
 			Weight weight = new Weight(300);
 
 			piotrek.Eat(kanapkaZSzynka);
-
-			ValueVsReference();
-
-			Console.ReadKey();
 		}
 
 		private static void ValueVsReference()

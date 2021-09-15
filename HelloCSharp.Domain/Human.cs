@@ -45,10 +45,22 @@ namespace HelloCSharp.Domain
 		}
 
 		public void Eat(Sandwich sandwich)
-		{
+		{			
 			/*
 			 * TODO how human eats???
 			 */
+		}
+
+		public void Eat(Wrapping wrappingWithFood)
+		{
+			if (wrappingWithFood.IsEmpty)
+			{ 
+				// Ha! Ha! Ha! What a "nice" joke... :/
+				return; 
+			}
+
+			var food = wrappingWithFood.Remove();
+			Eat((Sandwich)food);
 		}
 	}
 }
