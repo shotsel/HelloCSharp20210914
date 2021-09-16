@@ -39,7 +39,7 @@ namespace HelloCSharp.Domain
 			other._right = new Arm();
 		}
 
-		public void GetSound()
+		public virtual void GetSound()
 		{
 			Console.WriteLine("im speaking now: " + _sound);
 		}

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HelloCSharp.Domain
 {
-	abstract class Animal : ICreature
+	public abstract class Animal : ICreature
 	{
 		public static bool AlwaysDomestic = true;
 

@@ -13,14 +13,46 @@ namespace HelloCSharp.AppCmd
 	{
 		static void Main(string[] args)
 		{
+			Polimorphizm();
+
+			Console.ReadKey();
+		}
+
+		private static void Polimorphizm()
+		{
+			ICreature creature = new Man("im the creature");
+
+			creature.GetSound();
+
+			Dog dog = new Dog("as creature");
+			creature = dog;
+			creature.GetSound();
+
+			Animal animal = dog;
+
+			creature = animal;
+
+			animal.GetSound();
+			creature.GetSound();
+
+			Console.WriteLine("boy vs creature:");
+
+			Boy boy = new Boy();
+			boy.GetSound();
+
+			creature = boy;
+			creature.GetSound();
+		}
+
+		private static void LogicFromExcersize()
+		{
 			var burger = new Sandwich(300);
 			var paperBox = new Wrapping();
+
 			paperBox.Put(burger);
 
 			Human peter = new Man("im hugry!!");
 			peter.Eat(paperBox);
-
-			Console.ReadKey();
 		}
 
 		private static void Playground()

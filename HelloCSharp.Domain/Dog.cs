@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HelloCSharp.Domain
 {
-	class Dog : Animal
+	public class Dog : Animal
 	{
 		private readonly string _sound;
 
