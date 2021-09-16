@@ -38,6 +38,11 @@ namespace HelloCSharp.Domain
 
 		public void Put(TContent content)
 		{
+			if (_hasContent)
+			{
+				throw new InvalidOperationException("has content");
+			}
+
 			_hasContent = true;
 			_content = content;
 		}

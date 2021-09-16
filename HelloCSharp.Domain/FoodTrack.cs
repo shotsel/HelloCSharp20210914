@@ -89,7 +89,24 @@ namespace HelloCSharp.Domain
 		private Wrapping<Sandwich> Wrap(Sandwich sandwitch)
 		{
 			var box = new Wrapping<Sandwich>();
-			box.Put(sandwitch);
+
+			try
+			{
+				box.Put(sandwitch);
+			}
+			catch(InvalidOperationException ex)
+			{
+				/*
+				 * recover becouse i know how
+				 */
+				box.Remove();
+				box.Put(sandwitch);
+			}
+			catch(ArgumentNullException ex2)
+			{
+				throw new InvalidProgramException("strange null while packing", ex2);
+			}
+
 			return box;
 		}
 
