@@ -2,9 +2,9 @@
 
 namespace HelloCSharp.Domain
 {
-	public class Wrapping : Item
+	public class Wrapping<TContent> : Item
 	{
-		object _content = null;
+		TContent _content = default(TContent);
 
 		public Wrapping() 
 			: base(DateTime.MaxValue)
@@ -15,7 +15,7 @@ namespace HelloCSharp.Domain
 		{
 			get
 			{
-				return _content == null;
+				return object.Equals(_content, default(TContent));
 			}
 		}
 
@@ -23,16 +23,16 @@ namespace HelloCSharp.Domain
 		{
 			get
 			{
-				return _content != null;
+				return !object.Equals(_content, default(TContent));
 			}
 		}
 
-		public void Put(object content)
+		public void Put(TContent content)
 		{
 			_content = content;
 		}
 
-		public object Remove()
+		public TContent Remove()
 		{
 			return _content;
 		}

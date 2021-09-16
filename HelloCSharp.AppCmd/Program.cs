@@ -47,7 +47,7 @@ namespace HelloCSharp.AppCmd
 		private static void LogicFromExcersize()
 		{
 			var burger = new Sandwich(300);
-			var paperBox = new Wrapping();
+			var paperBox = new Wrapping<Sandwich>();
 
 			paperBox.Put(burger);
 

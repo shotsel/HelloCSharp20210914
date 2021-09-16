@@ -51,7 +51,7 @@ namespace HelloCSharp.Domain
 			 */
 		}
 
-		public void Eat(Wrapping wrappingWithFood)
+		public void Eat(Wrapping<Sandwich> wrappingWithFood)
 		{
 			if (wrappingWithFood.IsEmpty)
 			{ 
@@ -60,13 +60,8 @@ namespace HelloCSharp.Domain
 			}
 
 			var food = wrappingWithFood.Remove();
-			if (!(food is Sandwich))
-			{
-				// even more funny you idiot....
-				return;
-			}
 
-			Eat((Sandwich)food);
+			Eat(food);
 		}
 	}
 }
