@@ -41,6 +41,11 @@ namespace HelloCSharp.Domain
 			return _content;
 		}
 
+		public TContent Show()
+		{
+			return _content;
+		}
+
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(obj, this))

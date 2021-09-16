@@ -3,9 +3,9 @@ using System;
 
 namespace HelloCSharp.Domain
 {
-	public class Sandwich : Item, IEquatable<Sandwich>
+	public class Sandwich : Item, IEquatable<Sandwich>, IComparable<Sandwich>, IComparable<Wrapping<Sandwich>>
 	{
-		private readonly Weight _weight;
+		private readonly Weight _weight;		
 
 		private Sandwich()
 			: base(DateTime.Now.AddDays(3))
@@ -44,7 +44,58 @@ namespace HelloCSharp.Domain
 
 		public bool Equals(Sandwich other)
 		{
-			throw new NotImplementedException();
+			if (ReferenceEquals(this, other))
+			{ 
+				return true; 
+			}
+
+			return _weight.Equals(other._weight); // Weight == other.Weight;
+		}
+
+		public int CompareTo(Sandwich other)
+		{
+			if (other == null)
+			{
+				// TODO handle null somehow to prevent crashes (unexpected)
+				return 1;
+			}
+
+			/*
+			 * delegate to size indication or use custom implementiton below
+			 * 
+			 * return Size.CompareTo(other.Size);
+			 */
+			
+			// weight tolerance in grams
+			var weightTolerance = 10;
+
+			if (other.Weight.GetGrams() + weightTolerance < _weight.GetGrams() - weightTolerance)
+			{
+				return 1;
+			}
+
+			if (other.Weight.GetGrams() - weightTolerance > _weight.GetGrams() + weightTolerance)
+			{
+				return -1;
+			}
+
+			return 0;
+		}
+
+		public int CompareTo(Wrapping<Sandwich> other)
+		{
+			if (other == null)
+			{
+				// TODO handle null somehow to prevent crashes (unexpected)
+				return 1;
+			}
+
+			if (other.IsEmpty)
+			{
+				return 1;
+			}
+
+			return CompareTo(other.Show());
 		}
 	}
 }
