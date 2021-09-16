@@ -13,9 +13,46 @@ namespace HelloCSharp.AppCmd
 	{
 		static void Main(string[] args)
 		{
-			Polimorphizm();
+			FoodTrack();
 
 			Console.ReadKey();
+		}
+
+		private static void FoodTrack()
+		{
+			var burgerBuda = new FoodTrack();
+
+			var jedzenie = burgerBuda.PrepareFood(new[] { SandwichSize.Small, SandwichSize.Medium, SandwichSize.Medium });
+
+			Man glodny = new Man("jesc");
+
+			foreach (var burger in jedzenie)
+			{
+				glodny.Eat(burger);
+			}
+		}
+
+		private static void Looping()
+		{
+			List<int> numbers = new List<int>();
+
+			foreach(int number in numbers)
+			{
+				/*
+				 * process single number, item from colleciton
+				 */
+				Console.WriteLine("numbers is: " + number);
+			}
+
+			int[] arrayOfNumbers = new int[5];
+
+			for (int i = 0; i < arrayOfNumbers.Length; i++)
+			{
+				/*
+				 * get item from index and later process it whatever you want
+				 */
+				var number = arrayOfNumbers[i];
+			}
 		}
 
 		private static void Polimorphizm()

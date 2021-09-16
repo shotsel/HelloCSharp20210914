@@ -45,6 +45,8 @@
     <Compile Include="Arm.cs" />
     <Compile Include="Bird.cs" />
     <Compile Include="Boy.cs" />
+    <Compile Include="FoodOrder.cs" />
+    <Compile Include="FoodTrack.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="ICreature.cs" />
     <Compile Include="Dog.cs" />
