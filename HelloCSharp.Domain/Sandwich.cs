@@ -49,7 +49,8 @@ namespace HelloCSharp.Domain
 				return true; 
 			}
 
-			return _weight.Equals(other._weight); // Weight == other.Weight;
+			return _weight == other._weight;
+			//return _weight.Equals(other._weight); 
 		}
 
 		public int CompareTo(Sandwich other)
