@@ -26,7 +26,6 @@ namespace HelloCSharp.Domain
 		public Sandwich(int grams)
 			: this(Weight.FromGrams(grams))
 		{
-			new InvalidCastException
 		}
 
 		public Weight Weight => _weight;
