@@ -3,7 +3,7 @@ using System;
 
 namespace HelloCSharp.Domain
 {
-	public class Sandwich : Item
+	public class Sandwich : Item, IEquatable<Sandwich>
 	{
 		private readonly Weight _weight;
 
@@ -40,6 +40,11 @@ namespace HelloCSharp.Domain
 			 * TODO implement size computation. Do some automation, decision making code on behalf human's perception.
 			 */
 			return SandwichSize.Small;
+		}
+
+		public bool Equals(Sandwich other)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
