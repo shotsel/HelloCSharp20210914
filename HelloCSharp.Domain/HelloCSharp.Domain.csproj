@@ -59,7 +59,6 @@
     <Compile Include="SandwichSize.cs" />
     <Compile Include="Woman.cs" />
     <Compile Include="Wrapping.cs" />
-    <Compile Include="Wright.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HelloCSharp.Tools\HelloCSharp.Tools.csproj">
