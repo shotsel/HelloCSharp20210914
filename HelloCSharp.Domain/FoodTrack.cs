@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace HelloCSharp.Domain
 {
 	public class FoodTrack
 	{
-		public Wrapping<Sandwich>[] PrepareFood(IEnumerable<SandwichSize> order)
+		public FoodBox PrepareFood(IEnumerable<SandwichSize> order)
 		{
 			List<Wrapping<Sandwich>> sandwiches = new List<Wrapping<Sandwich>>();
 
@@ -21,12 +23,15 @@ namespace HelloCSharp.Domain
 				sandwiches.Add(packedSandwich);
 			}
 
-			return sandwiches.ToArray();
+			var recipe = PrintRecipe();
+			var location = StoreRecipe(recipe);
+
+			return new FoodBox(sandwiches, location);
 		}
 
-		public IEnumerable<Wrapping<Sandwich>> PrepareFood(IDictionary<SandwichSize, int> order)
+		public FoodBox PrepareFood(IDictionary<SandwichSize, int> order)
 		{
-			List<Wrapping<Sandwich>> sandwiches = new List<Wrapping<Sandwich>>();
+			FoodBox box = new FoodBox();
 
 			foreach (var positionFromOrder in order)
 			{
@@ -34,11 +39,16 @@ namespace HelloCSharp.Domain
 				{
 					Sandwich sandwitch = MakeSandwich(positionFromOrder.Key);
 					var packedSandwich = Wrap(sandwitch);
-					sandwiches.Add(packedSandwich);
+					box.Add(packedSandwich);
 				}
 			}
 
-			return sandwiches;
+			var recipe = PrintRecipe();
+			var location = StoreRecipe(recipe);
+
+			box.PutRecipe(location);
+
+			return box;
 		}
 
 		IEnumerable<Wrapping<Sandwich>> PrepareFood(FoodOrder order)
@@ -82,5 +92,26 @@ namespace HelloCSharp.Domain
 			box.Put(sandwitch);
 			return box;
 		}
-   	}
+
+		private string StoreRecipe(Recipe recipe)
+		{
+			var path = Path.Combine(@"c:\recipies", recipe.Number + ".xml");
+			var fileStream = File.OpenWrite(path);
+			using(fileStream)
+			{
+				var serializer = new XmlSerializer(typeof(Recipe));
+				serializer.Serialize(fileStream, recipe);
+			}
+
+			return path;
+		}
+
+		private Recipe PrintRecipe()
+		{
+			/*
+			 * TODO place purchaces items on recipe, create it. 
+			 */
+			return new Recipe();
+		}
+	}
 }

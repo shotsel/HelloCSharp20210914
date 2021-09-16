@@ -13,6 +13,13 @@ namespace HelloCSharp.Domain
 		{
 		}
 
+		protected Wrapping(TContent content)
+			: base(DateTime.MaxValue)
+		{
+			_content = content;
+			_hasContent = true;
+		}
+
 		public bool IsEmpty 
 		{
 			get

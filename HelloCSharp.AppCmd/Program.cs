@@ -26,10 +26,21 @@ namespace HelloCSharp.AppCmd
 
 			Man glodny = new Man("jesc");
 
-			foreach (var burger in jedzenie)
+			foreach (var burger in jedzenie.Sandwiches)
 			{
 				glodny.Eat(burger);
 			}
+
+			Recipe recipe = LoadRecipe(jedzenie.RecipeLocation);
+		}
+
+		private static Recipe LoadRecipe(string recipeLocation)
+		{
+			/*
+			 * TODO 
+			 * Deserialize recipe from hard drive using xml serializer.
+			 */
+			throw new NotImplementedException();
 		}
 
 		private static void Looping()
