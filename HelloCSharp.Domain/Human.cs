@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelloCSharp.Tools.Time;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace HelloCSharp.Domain
 {
-	public abstract class Human : ICreature
+	public abstract class Human : ICreature, IDisposable
 	{
 		private Arm _left;
 		private Arm _right;
+		private int _age;
 		private readonly string _sound;
 
 		public Human(string sound) 
 		{
 			CreationDate = DateTime.Now.Date;
 			_sound = sound;
+			Clock.NewDay += OnNewDay;
 		}
 
 		public Arm Left 
@@ -26,11 +29,13 @@ namespace HelloCSharp.Domain
 
 		public DateTime CreationDate { get; }
 
+		public int Age => _age;
+
 		public abstract Gender Gender { get; }
 
-		private void CheckIfHangCanBeSwapped(Arm value)
+		public void Dispose()
 		{
-			throw new NotImplementedException();
+			Clock.NewDay -= OnNewDay;
 		}
 
 		public void MakeFriendship(Human other)
@@ -62,6 +67,25 @@ namespace HelloCSharp.Domain
 			var food = wrappingWithFood.Remove();
 
 			Eat(food);
+		}
+
+		private void OnNewDay(Time time)
+		{
+			if (time.Day != CreationDate.DayOfYear)
+			{
+				return;
+			}
+
+			/*
+			 * local field modification, in conjuction with read via property, may require 
+			 * thread safe implementation (threads synchronization)
+			 */
+			_age++;
+		}
+
+		private void CheckIfHangCanBeSwapped(Arm value)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

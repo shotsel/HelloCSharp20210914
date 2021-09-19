@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Physics\Weight.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Time\Clock.cs" />
+    <Compile Include="Time\Time.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
